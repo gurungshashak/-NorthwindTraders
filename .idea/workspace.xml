@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5934c546-8746-4ccd-8f31-64e7bb19dfc1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../NorthwindTraders/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NorthwindTraders/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NorthwindTraders/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NorthwindTraders/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NorthwindTraders/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NorthwindTraders/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NorthwindTraders/src/main/java/com/pluralsight/main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../NorthwindTraders" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="36FeFN4BoV1hPOGUGjjK1WcgpBP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.main.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26199.169" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5934c546-8746-4ccd-8f31-64e7bb19dfc1" name="Changes" comment="" />
+      <created>1764606642601</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764606642601</updated>
+    </task>
+    <servers />
+  </component>
+</project>
