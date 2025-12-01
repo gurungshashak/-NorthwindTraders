@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5934c546-8746-4ccd-8f31-64e7bb19dfc1" name="Changes" comment="commit">
+    <list default="true" id="5934c546-8746-4ccd-8f31-64e7bb19dfc1" name="Changes" comment="little change">
       <change beforePath="$PROJECT_DIR$/../NorthwindTraders/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../NorthwindTraders/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../NorthwindTraders/src/main/java/com/pluralsight/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NorthwindTraders/src/main/java/com/pluralsight/main.java" afterDir="false" />
     </list>
@@ -84,12 +84,21 @@
       <option name="project" value="LOCAL" />
       <updated>1764612952962</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="little change">
+      <option name="closed" value="true" />
+      <created>1764614810387</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1764614810387</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit initial" />
     <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <MESSAGE value="little change" />
+    <option name="LAST_COMMIT_MESSAGE" value="little change" />
   </component>
 </project>
