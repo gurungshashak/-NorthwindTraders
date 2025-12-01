@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5934c546-8746-4ccd-8f31-64e7bb19dfc1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../NorthwindTraders/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NorthwindTraders/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NorthwindTraders/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NorthwindTraders/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NorthwindTraders/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NorthwindTraders/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NorthwindTraders/src/main/java/com/pluralsight/main.java" afterDir="false" />
+    <list default="true" id="5934c546-8746-4ccd-8f31-64e7bb19dfc1" name="Changes" comment="commit initial">
+      <change beforePath="$PROJECT_DIR$/../NorthwindTraders/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../NorthwindTraders/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NorthwindTraders/src/main/java/com/pluralsight/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NorthwindTraders/src/main/java/com/pluralsight/main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +23,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../NorthwindTraders" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "gurungshashak"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/gurungshashak/-NorthwindTraders",
+    "accountId": "dff5fa24-d2bc-4b98-a5d8-18ab92caaa4e"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 7
 }]]></component>
@@ -61,6 +68,19 @@
       <option name="presentableId" value="Default" />
       <updated>1764606642601</updated>
     </task>
+    <task id="LOCAL-00001" summary="commit initial">
+      <option name="closed" value="true" />
+      <created>1764612471168</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1764612471168</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit initial" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit initial" />
   </component>
 </project>
