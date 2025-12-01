@@ -1,26 +1,35 @@
 package com.pluralsight;
 import java.sql.*;
+import java.util.Scanner;
 
 public class main {
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        String url = "jdbc:mysql://localhost:3306/northwind";
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+
+        String url = "jdbc:mysql://127.0.0.1:3306/northwind";
         String user = "root";
         String password = "yearup";
 
-        String query = "select * from Product";
 
-        try{
-            Connection conn = DriverManager.getConnection(url, user, password);
-            PreparedStatement statement = conn.prepareStatement(query);
-            ResultSet resultSet = statement.executeQuery();
+        String query = "SELECT * FROM Products";
+        try {
+            Connection connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement statement = connection.prepareStatement(query);
 
-            while (resultSet.next()) {
-                String name = resultSet.getString("ProductName");
-                System.out.println(name);
+            ResultSet results = statement.executeQuery();
+
+            while (results.next()) {
+                System.out.println(results.getString("ProductName"));
+
             }
-            conn.close();
-    }catch(SQLException e){
-        e.printStackTrace();}
+
+            results.close();
+            statement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
