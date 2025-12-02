@@ -9,9 +9,11 @@ public class main {
         boolean running = true;
 
         while (running) {
+            System.out.println("========================\n");
             System.out.println("What do you want to do?");
             System.out.println("1) Display all products");
             System.out.println("2) Display all customers");
+            System.out.println("3) Display all categories");
             System.out.println("0) Exit");
             System.out.print("Select an option: ");
 
@@ -23,6 +25,9 @@ public class main {
                     break;
                 case "2":
                     displayAllCustomers();
+                    break;
+                case "3":
+                    displayCategories();
                     break;
                 case "0":
                     running = false;
@@ -40,7 +45,6 @@ public class main {
         String url = "jdbc:mysql://127.0.0.1:3306/northwind";
         String user = "root";
         String password = "yearup";
-
 
         String query = "SELECT ProductID, ProductName, UnitPrice, UnitsInStock FROM Products";
 
@@ -78,26 +82,106 @@ public class main {
 
 
         String query = "SELECT ContactName, CompanyName, City, Country, Phone " + "FROM Customers " + "ORDER BY Country";
-       try{
-           Connection conn = DriverManager.getConnection(url, user, password);
-           Statement stmt = conn.createStatement();
-           ResultSet rs = stmt.executeQuery(query);
-           while (rs.next()) {
-               System.out.println("Contact Name : " + rs.getString("ContactName"));
-               System.out.println("Company Name : " + rs.getString("CompanyName"));
-               System.out.println("City         : " + rs.getString("City"));
-               System.out.println("Country      : " + rs.getString("Country"));
-               System.out.println("Phone        : " + rs.getString("Phone"));
-               System.out.println("----------------------------------------------------");
-           }
-           conn.close();
-           rs.close();
-           stmt = conn.createStatement();
+        Connection conn = null;
+        ResultSet rs = null;
+        Statement stmt = null;
+        try {
+            conn = DriverManager.getConnection(url, user, password);
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                System.out.println("Contact Name : " + rs.getString("ContactName"));
+                System.out.println("Company Name : " + rs.getString("CompanyName"));
+                System.out.println("City         : " + rs.getString("City"));
+                System.out.println("Country      : " + rs.getString("Country"));
+                System.out.println("Phone        : " + rs.getString("Phone"));
+                System.out.println("----------------------------------------------------");
+            }
 
-       } catch(Exception e){
-           System.out.println(e.getMessage());
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
 
-       }
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
 
     }
+
+    private static void displayCategories() {
+        String url = "jdbc:mysql://127.0.0.1:3306/northwind";
+        String user = "root";
+        String password = "yearup";
+
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Connection conn = null;
+
+        System.out.println("\n--- Categories ---");
+
+        try {
+
+            String sqlCategories = "SELECT CategoryID, CategoryName FROM Categories ORDER BY CategoryID";
+            conn = DriverManager.getConnection(url, user, password);
+            stmt = conn.prepareStatement(sqlCategories);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                int categoryId = rs.getInt("CategoryID");
+                String categoryName = rs.getString("CategoryName");
+                System.out.printf("ID[%d]: %s%n", categoryId, categoryName);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error retrieving categories: " + e.getMessage());
+            return;
+
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+
+
+    }
+
 }
