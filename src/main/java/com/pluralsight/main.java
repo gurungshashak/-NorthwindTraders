@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class main {
     public static void main(String[] args) {
 
+
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
 
@@ -14,6 +15,7 @@ public class main {
             System.out.println("1) Display all products");
             System.out.println("2) Display all customers");
             System.out.println("3) Display all categories");
+            System.out.println("4) Display all products by ID");
             System.out.println("0) Exit");
             System.out.print("Select an option: ");
 
@@ -28,6 +30,9 @@ public class main {
                     break;
                 case "3":
                     displayCategories();
+                    break;
+                case "4":
+                    displayCategoriesAndProducts(scanner);
                     break;
                 case "0":
                     running = false;
@@ -133,55 +138,92 @@ public class main {
         String user = "root";
         String password = "yearup";
 
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        Connection conn = null;
-
         System.out.println("\n--- Categories ---");
 
-        try {
+        String sqlCategories = "SELECT CategoryID, CategoryName FROM Categories ORDER BY CategoryID";
 
-            String sqlCategories = "SELECT CategoryID, CategoryName FROM Categories ORDER BY CategoryID";
-            conn = DriverManager.getConnection(url, user, password);
-            stmt = conn.prepareStatement(sqlCategories);
-            rs = stmt.executeQuery();
+
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement stmt = conn.prepareStatement(sqlCategories);
+             ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
                 int categoryId = rs.getInt("CategoryID");
                 String categoryName = rs.getString("CategoryName");
-                System.out.printf("ID[%d]: %s%n", categoryId, categoryName);
+                System.out.printf("ID:[%d]: %s%n", categoryId, categoryName);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error retrieving categories: " + e.getMessage());
+        }
+    }
+
+    private static void displayCategoriesAndProducts(Scanner scanner) {
+        String url = "jdbc:mysql://127.0.0.1:3306/northwind";
+        String user = "root";
+        String password = "yearup";
+
+        System.out.println("\n--- Categories ---");
+
+        String sqlCategories = "SELECT CategoryID, CategoryName FROM Categories ORDER BY CategoryID";
+
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement stmt = conn.prepareStatement(sqlCategories);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                int categoryId = rs.getInt("CategoryID");
+                String categoryName = rs.getString("CategoryName");
+                System.out.printf("ID:[%d]: %s%n", categoryId, categoryName);
             }
 
         } catch (SQLException e) {
             System.out.println("Error retrieving categories: " + e.getMessage());
             return;
-
-        } finally {
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-
         }
 
 
+        System.out.print("\nEnter a Category ID to view its products: ");
+        int selectedId = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("\n--- Products in Selected Category ---");
+
+        String sqlProducts = """
+            SELECT ProductID, ProductName, UnitPrice, UnitsInStock
+            FROM Products
+            WHERE CategoryID = ?
+            ORDER BY ProductID
+        """;
+
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement stmt = conn.prepareStatement(sqlProducts)) {
+
+            stmt.setInt(1, selectedId);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                boolean found = false;
+
+                while (rs.next()) {
+                    found = true;
+                    int productId = rs.getInt("ProductID");
+                    String productName = rs.getString("ProductName");
+                    double unitPrice = rs.getDouble("UnitPrice");
+                    int unitsInStock = rs.getInt("UnitsInStock");
+
+                    System.out.printf("%d) %s | $%.2f | Stock: %d%n",
+                            productId, productName, unitPrice, unitsInStock);
+                }
+
+                if (!found) {
+                    System.out.println("No products found for this category.");
+                }
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error retrieving products: " + e.getMessage());
+        }
     }
+
 
 }
